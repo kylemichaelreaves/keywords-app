@@ -5,12 +5,14 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import {blankKeyword, fetchKeywords, KeywordInterface} from "./useKeywords";
-import {useQuery} from "@tanstack/react-query";
+import {useQuery, useQueryClient} from "@tanstack/react-query";
 import {AxiosError} from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
 import ChipList, {ChipListProps} from "../ChipList";
 
 export default function KeywordsForm() {
+
+    const queryClient = useQueryClient();
 
     const [keywords, setKeywords] = React.useState('');
     const {
