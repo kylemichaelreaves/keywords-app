@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
-import {BrowserRouter, createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import KeywordsForm from "./components/Keywords/KeywordsForm";
 import AddressGeocoder from "./components/AddressGeocoder/AddressGeocoder";
 import Home from "./components/Home";
@@ -42,7 +42,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <QueryClientProvider client={queryClient}>
             <ReactQueryDevtools initialIsOpen/>
             <RouterProvider router={router}/>
-
         </QueryClientProvider>
     </React.StrictMode>
 )
