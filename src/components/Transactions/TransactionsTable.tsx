@@ -1,14 +1,7 @@
 import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 import {useTransactions} from "./useTransactions";
-import {DataGrid, GridColDef, GridValueGetterParams} from '@mui/x-data-grid';
+import {DataGrid, GridColDef} from '@mui/x-data-grid';
 import Alert from "@mui/material/Alert";
-
 import CircularProgress from '@mui/material/CircularProgress';
 
 
@@ -35,7 +28,7 @@ export default function TransactionsTable() {
                     columns={columns}
                     rows={data}
                     autoHeight={true}
-                    sx={{bgcolor: 'background.paper', color: 'black', width: '100%'}}
+                    sx={{bgcolor: 'background.paper', color: 'black'}}
                     getRowId={(row) => row['Transaction Number']}
                 />
             )}

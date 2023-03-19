@@ -1,16 +1,11 @@
 import React from 'react';
 import {Tabs, Tab, Box} from '@mui/material';
 import {useNavigate} from 'react-router-dom';
+import {NavBarProps} from "../types";
 
-interface Props {
-    routes: {
-        path: string;
-        label: string;
-        icon: any;
-    }[];
-}
 
-const Navbar: React.FC<Props> = ({routes}) => {
+
+const Navbar: React.FC<NavBarProps> = ({routes}) => {
     const navigate = useNavigate();
     const [value, setValue] = React.useState(0);
     const activeRoute = routes.findIndex((route) => route.path === location.pathname);
@@ -21,7 +16,7 @@ const Navbar: React.FC<Props> = ({routes}) => {
     };
 
     return (
-        <Box sx={{borderBottom: 1, borderColor: 'divider',  bgcolor: 'background.paper',}}>
+        <Box sx={{border: 2, borderColor: 'divider',  bgcolor: 'lightgrey'}}>
             <Tabs
                 value={activeRoute !== -1 ? activeRoute : false}
                 onChange={handleChange}

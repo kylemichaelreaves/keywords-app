@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
 import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 import TransactionsTable from "./components/Transactions/TransactionsTable";
+import Transaction, {transactionLoader} from "./components/Transactions/Transaction";
 
 const queryClient = new QueryClient()
 
@@ -31,6 +32,11 @@ const router = createBrowserRouter([{
         {
             path: '/transactions',
             element: <TransactionsTable/>
+        },
+        {
+            path: '/transactions/:transactionId',
+            element: <Transaction/>,
+            loader: transactionLoader
         }
     ],
 }
