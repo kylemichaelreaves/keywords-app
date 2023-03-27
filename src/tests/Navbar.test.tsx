@@ -2,7 +2,7 @@ import React from 'react';
 import {render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {useNavigate} from 'react-router-dom';
-import {Navbar} from "../components/Navbar";
+import Navbar from "../components/Navbar";
 import {NavBarProps} from "../types";
 import {routes as defaultRoutes} from '../App';
 

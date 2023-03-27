@@ -33,4 +33,4 @@ const Navbar: React.FC<NavBarProps> = ({routes}) => {
     );
 };
 
-export {Navbar};
+export default Navbar;
