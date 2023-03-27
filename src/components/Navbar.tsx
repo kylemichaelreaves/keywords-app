@@ -3,8 +3,6 @@ import {Tabs, Tab, Box} from '@mui/material';
 import {useNavigate} from 'react-router-dom';
 import {NavBarProps} from "../types";
 
-
-
 const Navbar: React.FC<NavBarProps> = ({routes}) => {
     const navigate = useNavigate();
     const [value, setValue] = React.useState(0);
@@ -35,4 +33,4 @@ const Navbar: React.FC<NavBarProps> = ({routes}) => {
     );
 };
 
-export default Navbar;
+export {Navbar};

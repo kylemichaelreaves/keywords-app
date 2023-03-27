@@ -16,13 +16,24 @@ export interface TransactionInterface {
 }
 
 export interface NavBarProps {
-    routes: {
+    routes: Array<{
         path: string;
         label: string;
-        icon: any;
-    }[];
+        icon: any; // Replace 'any' with the appropriate type if you know it
+    }>;
 }
+
 
 export type TransactionLoaderData = {
     transactionQuery: { data: TransactionInterface };
 };
+
+export type Route = {
+    path: string;
+    label: string;
+    icon: React.ReactNode;
+};
+
+// export type NavBarProps = {
+//     routes: Route[];
+// };

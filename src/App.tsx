@@ -1,5 +1,5 @@
 import './App.css'
-import Navbar from "./components/Navbar";
+import {Navbar} from "./components/Navbar";
 import * as React from "react";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import KeyOutlinedIcon from "@mui/icons-material/KeyOutlined";
@@ -11,7 +11,7 @@ import TransactionsTable from "./components/Transactions/TransactionsTable";
 import AddressGeocoder from "./components/AddressGeocoder/AddressGeocoder";
 import Home from "./components/Home";
 
-const routes = [
+export const routes = [
     {path: '/', label: 'Home', icon: <HomeOutlinedIcon/>, component: Home},
     {path: '/keywords', label: 'Keywords', icon: <KeyOutlinedIcon/>, component: KeywordsForm},
     {path: '/address-geocoder', label: 'Address Geocoder', icon: <LocationOnOutlinedIcon/>, component: AddressGeocoder},

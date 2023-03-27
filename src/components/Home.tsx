@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default function Home() {
+function Home() {
     return (
         <>
         <h1>
@@ -18,3 +18,5 @@ export default function Home() {
         </>
     )
 }
+
+export default Home
