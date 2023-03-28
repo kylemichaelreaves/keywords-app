@@ -3,7 +3,6 @@ import Home from '../components/Home';
 
 describe('Home component', () => {
     it('renders without crashing', () => {
-        // TS2749: 'Home' refers to a value, but is being used as a type here. Did you mean 'typeof Home'?
         render(<Home />);
     });
 
