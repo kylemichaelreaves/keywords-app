@@ -18,7 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
     "types": [
       "node",
       "vitest/globals",
@@ -27,7 +27,7 @@
   },
   "include": [
     "src",
-    "./src/test-setup.ts"
+    "./test-setup.ts"
   ],
   "references": [
     {
