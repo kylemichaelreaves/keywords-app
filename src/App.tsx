@@ -5,7 +5,7 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import KeyOutlinedIcon from "@mui/icons-material/KeyOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import SavingsIcon from "@mui/icons-material/Savings";
-import {BrowserRouter, Link, Outlet} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import KeywordsForm from "./components/Keywords/KeywordsForm";
 import TransactionsTable from "./components/Transactions/TransactionsTable";
 import AddressGeocoder from "./components/AddressGeocoder/AddressGeocoder";
