@@ -11,7 +11,7 @@ import TransactionsTable from "./components/Transactions/TransactionsTable";
 import AddressGeocoder from "./components/AddressGeocoder/AddressGeocoder";
 import Home from "./components/Home";
 
-const routes = [
+export const routes = [
     {path: '/', label: 'Home', icon: <HomeOutlinedIcon/>, component: Home},
     {path: '/keywords', label: 'Keywords', icon: <KeyOutlinedIcon/>, component: KeywordsForm},
     {path: '/address-geocoder', label: 'Address Geocoder', icon: <LocationOnOutlinedIcon/>, component: AddressGeocoder},
