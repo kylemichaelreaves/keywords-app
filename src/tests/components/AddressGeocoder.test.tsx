@@ -1,5 +1,5 @@
-import React from 'react';
-import {fireEvent, getByText, render, screen, waitFor} from '@testing-library/react';
+import * as React from 'react';
+import {fireEvent, getByText, render, screen} from '@testing-library/react';
 import {AddressGeocoder} from '../../components/AddressGeocoder/AddressGeocoder';
 import {vi} from 'vitest';
 import {createQueryProviderWrapper} from '../create-query-client-wrapper';
