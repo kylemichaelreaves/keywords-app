@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {AddressesListProps} from "../../types";
 import {List, ListItem, ListItemText, Paper} from "@material-ui/core";
 
@@ -27,10 +27,3 @@ export default function AddressesList({data}: AddressesListProps) {
 
     );
 }
-
-
-
-
-
-
-

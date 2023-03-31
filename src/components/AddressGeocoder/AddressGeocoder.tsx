@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import * as React from 'react';
 import {useAddress} from '../../hooks/useAddresses';
 import {TextField, Button, CircularProgress, makeStyles, Box} from '@material-ui/core';
 import {AddressFields} from "../../types";
@@ -45,7 +45,7 @@ export const fieldsConfig = {
 
 const AddressGeocoder: React.FC = () => {
     const classes = useStyles();
-    const [addressFields, setAddressFields] = useState<AddressFields>(initialAddressFields);
+    const [addressFields, setAddressFields] = React.useState<AddressFields>(initialAddressFields);
     const {data, isLoading, isFetching, isError, error, refetch} = useAddress(addressFields);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -110,4 +110,4 @@ const AddressGeocoder: React.FC = () => {
     );
 };
 
-export {AddressGeocoder};
+export default AddressGeocoder;

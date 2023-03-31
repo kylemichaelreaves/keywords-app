@@ -9,6 +9,3 @@ export function isFormValid(fieldsConfig: FieldConfig, addressFields: AddressFie
         ) && !isFetching
     );
 }
-
-
-

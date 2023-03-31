@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {fireEvent, getByText, render, screen} from '@testing-library/react';
-import {AddressGeocoder} from '../../components/AddressGeocoder/AddressGeocoder';
+import AddressGeocoder from '../../components/AddressGeocoder/AddressGeocoder';
 import {vi} from 'vitest';
 import {createQueryProviderWrapper} from '../create-query-client-wrapper';
 import {addressesMock} from "../data/addressMock";
