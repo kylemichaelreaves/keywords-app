@@ -2,7 +2,7 @@ import * as React from 'react';
 import {LoaderFunctionArgs, useLoaderData} from 'react-router-dom';
 import { TransactionInterface } from '../../types';
 import { UseQueryResult } from '@tanstack/react-query';
-import {useTransactions} from "./useTransactions";
+import {useTransactions} from "../../hooks/useTransactions";
 
 export async function transactionLoader({ params }: LoaderFunctionArgs) {
     const transactionId = Number(params?.transactionId);

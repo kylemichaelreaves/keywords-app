@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useTransactions} from "./useTransactions";
+import {useTransactions} from "../../hooks/useTransactions";
 import {DataGrid, GridColDef} from '@mui/x-data-grid';
 import Alert from "@mui/material/Alert";
 import CircularProgress from '@mui/material/CircularProgress';
