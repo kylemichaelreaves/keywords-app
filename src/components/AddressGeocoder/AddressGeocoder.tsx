@@ -1,7 +1,12 @@
-import React, {useState} from 'react';
-import {useAddress} from './useAddresses';
-import {TextField, Button, CircularProgress, makeStyles, Box, Paper} from '@material-ui/core';
+import * as React from 'react';
+import {useAddress} from '../../hooks/useAddresses';
+import {TextField, Button, CircularProgress, makeStyles, Box} from '@material-ui/core';
 import {AddressFields} from "../../types";
+import AddressesList from "./AddressesList";
+import {isFormValid} from "./isFormValid";
+import LoadingButton from "@mui/lab/LoadingButton";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import {FormControl} from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -16,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     },
     inputField: {
         '& .MuiInputBase-root': {
-            background: theme.palette.background.paper, // Replace this with the desired background color
+            background: theme.palette.background.paper,
             color: 'black',
         },
     },
@@ -33,7 +38,7 @@ const initialAddressFields: AddressFields = {
     zipcode: '',
 };
 
-const fieldsConfig = {
+export const fieldsConfig = {
     streetAddress: {label: 'Street Address', required: true},
     unitOrAptNum: {label: 'Unit or Apt Num', required: false},
     municipality: {label: 'Municipality', required: true},
@@ -41,37 +46,44 @@ const fieldsConfig = {
     zipcode: {label: 'Zip Code', required: false},
 };
 
-const GeocodingForm: React.FC = () => {
+const AddressGeocoder: React.FC = () => {
     const classes = useStyles();
-    const [addressFields, setAddressFields] = useState<AddressFields>(initialAddressFields);
+    const [addressFields, setAddressFields] = React.useState<AddressFields>(initialAddressFields);
     const {data, isLoading, isFetching, isError, error, refetch} = useAddress(addressFields);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
         setAddressFields((prev) => ({...prev, [name]: value}));
     };
-
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        refetch();
+        console.log('handleSubmit called!')
+        console.log('validForm', validForm)
+        refetch({
+            throwOnError: true
+        });
     };
+
+    const validForm = isFormValid(fieldsConfig, addressFields, isFetching);
+
     return (
         <>
-            {data && (
-                data)}
-            <Paper variant="outlined" elevation={10}>
-                <Box
-                    component="form"
-                    className={classes.form}
-                    onSubmit={handleSubmit}
-                >
+            {data && <AddressesList data={data.message}/>}
+            <Box component="form" className={classes.form} onSubmit={handleSubmit}>
+                <FormControl>
                     {Object.keys(fieldsConfig).map((fieldKey) => {
-                        const fieldConfig = fieldsConfig[fieldKey as keyof typeof fieldsConfig];
+                        const fieldConfig =
+                            fieldsConfig[fieldKey as keyof typeof fieldsConfig];
                         return (
                             <TextField
+                                id={fieldKey}
                                 key={fieldKey}
                                 name={fieldKey}
-                                helperText={fieldConfig.label}
+                                placeholder={fieldConfig.label}
+                                InputLabelProps={{
+                                    htmlFor: fieldKey,
+                                    id: `${fieldKey}-label`,
+                                }}
                                 label={fieldConfig.label}
                                 value={addressFields[fieldKey as keyof AddressFields]}
                                 onChange={handleChange}
@@ -80,23 +92,20 @@ const GeocodingForm: React.FC = () => {
                             />
                         );
                     })}
-                    <Button
+                    <LoadingButton
                         variant="contained"
                         color="primary"
                         type="submit"
-                        disabled={isFetching}
-                        startIcon={
-                            isFetching ? (
-                                <CircularProgress size={16} thickness={5}/>
-                            ) : null
-                        }
+                        disabled={!validForm}
+                        loading={isFetching}
+                        startIcon={<LocationOnIcon/>}
                     >
                         Geocode Address
-                    </Button>
-                </Box>
-            </Paper>
+                    </LoadingButton>
+                </FormControl>
+            </Box>
         </>
     );
 };
 
-export default GeocodingForm;
+export default AddressGeocoder;
