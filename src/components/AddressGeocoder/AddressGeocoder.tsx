@@ -4,6 +4,9 @@ import {TextField, Button, CircularProgress, makeStyles, Box} from '@material-ui
 import {AddressFields} from "../../types";
 import AddressesList from "./AddressesList";
 import {isFormValid} from "./isFormValid";
+import LoadingButton from "@mui/lab/LoadingButton";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import {FormControl} from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -65,46 +68,41 @@ const AddressGeocoder: React.FC = () => {
 
     return (
         <>
-            {data && <AddressesList data={data.message} />}
+            {data && <AddressesList data={data.message}/>}
             <Box component="form" className={classes.form} onSubmit={handleSubmit}>
-                {Object.keys(fieldsConfig).map((fieldKey) => {
-                    const fieldConfig =
-                        fieldsConfig[fieldKey as keyof typeof fieldsConfig];
-                    return (
-                        <TextField
-                            id={fieldKey}
-                            key={fieldKey}
-                            name={fieldKey}
-                            placeholder={fieldConfig.label}
-                            InputLabelProps={{
-                                htmlFor: fieldKey,
-                                id: `${fieldKey}-label`,
-                            }}
-                            label={fieldConfig.label}
-                            value={addressFields[fieldKey as keyof AddressFields]}
-                            onChange={handleChange}
-                            required={fieldConfig.required}
-                            className={classes.inputField}
-                        />
-                    );
-                })}
-                <Button
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                    disabled={!validForm}
-                    startIcon={
-                        isFetching ? (
-                            <CircularProgress
-                                data-testid="loading-spinner"
-                                size={16}
-                                thickness={5}
+                <FormControl>
+                    {Object.keys(fieldsConfig).map((fieldKey) => {
+                        const fieldConfig =
+                            fieldsConfig[fieldKey as keyof typeof fieldsConfig];
+                        return (
+                            <TextField
+                                id={fieldKey}
+                                key={fieldKey}
+                                name={fieldKey}
+                                placeholder={fieldConfig.label}
+                                InputLabelProps={{
+                                    htmlFor: fieldKey,
+                                    id: `${fieldKey}-label`,
+                                }}
+                                label={fieldConfig.label}
+                                value={addressFields[fieldKey as keyof AddressFields]}
+                                onChange={handleChange}
+                                required={fieldConfig.required}
+                                className={classes.inputField}
                             />
-                        ) : null
-                    }
-                >
-                    Geocode Address
-                </Button>
+                        );
+                    })}
+                    <LoadingButton
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                        disabled={!validForm}
+                        loading={isFetching}
+                        startIcon={<LocationOnIcon/>}
+                    >
+                        Geocode Address
+                    </LoadingButton>
+                </FormControl>
             </Box>
         </>
     );

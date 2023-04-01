@@ -6,7 +6,8 @@ import {NavBarProps} from "../types";
 const Navbar: React.FC<NavBarProps> = ({routes}) => {
     const navigate = useNavigate();
     const [value, setValue] = React.useState(0);
-    const activeRoute = routes.findIndex((route) => route.path === location.pathname);
+    const activeRoute = routes.findIndex((route) =>
+        route.path === location.pathname);
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
         setValue(newValue);
