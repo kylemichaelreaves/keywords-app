@@ -4,9 +4,9 @@ import AddressGeocoder from '../../components/AddressGeocoder/AddressGeocoder';
 import {vi} from 'vitest';
 import {createQueryProviderWrapper} from '../create-query-client-wrapper';
 import {addressesMock} from "../data/addressMock";
-import {isFormValid} from "../../components/AddressGeocoder/isFormValid";
+import {isAddressFormValid} from "../../components/AddressGeocoder/isAddressFormValid";
 
-const isFormValidSpy = vi.fn().mockImplementation(isFormValid)
+const isFormValidSpy = vi.fn().mockImplementation(isAddressFormValid)
 const setup = () => {
     const utils = render(<AddressGeocoder/>, {wrapper: createQueryProviderWrapper()})
     const streetAddressInput = screen.getByPlaceholderText('Street Address')

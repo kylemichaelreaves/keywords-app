@@ -1,6 +1,6 @@
 import {AddressFields, FieldConfig} from "../../types";
 
-export function isFormValid(fieldsConfig: FieldConfig, addressFields: AddressFields, isFetching: boolean) {
+export function isAddressFormValid(fieldsConfig: FieldConfig, addressFields: AddressFields, isFetching: boolean) {
     return (
         Object.keys(fieldsConfig).every(
             (fieldKey) =>
