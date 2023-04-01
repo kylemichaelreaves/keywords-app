@@ -1,2 +1,3 @@
 # keywords-app
-React tsx, Vite, Material UI 
+- A UI to interact with AWS lambdas
+- React, TypeScript, Vite, Vitest, react-router, @tanstack/react-query, Material UI 
