@@ -7,9 +7,5 @@ import {handlers} from './msw'
 
 export const server = setupServer(...handlers)
 beforeAll(() => server.listen())
-afterEach(() => {
-        server.resetHandlers()
-        vi.clearAllMocks()
-    }
-)
+afterEach(() => server.resetHandlers())
 afterAll(() => server.close())

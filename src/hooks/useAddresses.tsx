@@ -6,9 +6,10 @@ import {AddressFields} from "../types";
 const URL = import.meta.env.VITE_APIGATEWAY_URL
 
 export async function fetchAddresses(address: AddressFields) {
+    const queryStringParams = new URLSearchParams(Object.entries(address));
     return address === undefined
         ? Promise.reject(new Error('address is undefined'))
-        : await axios.get(`${URL}/address-geocoder`, {params: address})
+        : await axios.get(`${URL}/address-geocoder`, {params: queryStringParams})
             .then(res => res.data)
             .catch(err => {
                 console.log('err:', err);

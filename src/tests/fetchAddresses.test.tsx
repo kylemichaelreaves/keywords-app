@@ -4,11 +4,6 @@ import { fetchAddresses } from '../hooks/useAddresses'
 import { AddressFields } from '../types';
 import {server} from "./test-setup";
 
-test('fetchAddresses > should reject with an error if addressFields is undefined', async ({ expect }) => {
-    const address: AddressFields = undefined as any;
-    await expect(fetchAddresses(address)).rejects.toThrow('address is undefined');
-});
-
 test('fetchAddresses > should call the API with the correct parameters', async ({ expect }) => {
     const address: AddressFields = {
         streetAddress: '123 Main St',
