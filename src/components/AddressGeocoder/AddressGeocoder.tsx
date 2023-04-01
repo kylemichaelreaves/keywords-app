@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {useAddress} from '../../hooks/useAddresses';
-import {TextField, Button, CircularProgress, makeStyles, Box} from '@material-ui/core';
+import {TextField, makeStyles, Box} from '@material-ui/core';
 import {AddressFields} from "../../types";
 import AddressesList from "./AddressesList";
-import {isFormValid} from "./isFormValid";
+import {isAddressFormValid} from "./isAddressFormValid";
 import LoadingButton from "@mui/lab/LoadingButton";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import {FormControl} from "@mui/material";
@@ -64,7 +64,7 @@ const AddressGeocoder: React.FC = () => {
         });
     };
 
-    const validForm = isFormValid(fieldsConfig, addressFields, isFetching);
+    const validForm = isAddressFormValid(fieldsConfig, addressFields, isFetching);
 
     return (
         <>

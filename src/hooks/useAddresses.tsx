@@ -1,21 +1,7 @@
 import * as React from 'react';
 import {useQuery} from "@tanstack/react-query";
-import axios from 'axios';
+import {fetchAddresses} from "../api/addresses/fetchAddresses";
 import {AddressFields} from "../types";
-
-const URL = import.meta.env.VITE_APIGATEWAY_URL
-
-export async function fetchAddresses(address: AddressFields) {
-    const queryStringParams = new URLSearchParams(Object.entries(address));
-    return address === undefined
-        ? Promise.reject(new Error('address is undefined'))
-        : await axios.get(`${URL}/address-geocoder`, {params: queryStringParams})
-            .then(res => res.data)
-            .catch(err => {
-                console.log('err:', err);
-                throw new Error(err);
-            });
-}
 
 export function useAddress(addressFields: AddressFields) {
     return useQuery(

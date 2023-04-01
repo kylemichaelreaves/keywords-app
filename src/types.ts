@@ -1,9 +1,9 @@
 export interface AddressFields {
     streetAddress: string;
-    unitOrAptNum: string;
+    unitOrAptNum?: string;
     municipality: string;
     state: string;
-    zipcode: string;
+    zipcode?: string;
 }
 
 export interface AddressResponse {
