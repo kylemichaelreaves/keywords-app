@@ -8,6 +8,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      VITE_APIGATEWAY_URL: "https://api.example.com"
 
     steps:
       - name: Checkout repository

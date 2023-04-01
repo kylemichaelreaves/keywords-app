@@ -13,6 +13,7 @@ export default defineConfig({
         environment: 'happy-dom',
         setupFiles: './src/tests/test-setup.ts',
         css: true,
+
     },
     server: {
         host: '127.0.0.1',
