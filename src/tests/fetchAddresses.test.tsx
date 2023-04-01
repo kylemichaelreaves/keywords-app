@@ -19,7 +19,7 @@ test('fetchAddresses > should call the API with the correct parameters', async (
     };
 
     server.use(
-        rest.get(`*/address-geocoder`, (req, res, ctx) => {
+        rest.get(`*address-geocoder`, (req, res, ctx) => {
             expect(req.url.searchParams.toString()).toBe(new URLSearchParams(Object.entries(address)).toString());
             return res(ctx.json('mockedData'));
         })
@@ -41,7 +41,7 @@ test('fetchAddresses > should throw an error if the API call fails', async ({ ex
     // Mock failed API response
     const error = new Error('Request failed with status code 500');
     server.use(
-        rest.get(`*/address-geocoder`, (req, res, ctx) => {
+        rest.get(`*address-geocoder`, (req, res, ctx) => {
             return res(ctx.status(500), ctx.json({ message: error.message }));
         })
     );
