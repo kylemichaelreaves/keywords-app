@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import AddressesList from "../../components/AddressGeocoder/AddressesList";
+import AddressesList from "../../../components/AddressGeocoder/AddressesList";
 
 describe('AddressesList component', () => {
     const mockData = [

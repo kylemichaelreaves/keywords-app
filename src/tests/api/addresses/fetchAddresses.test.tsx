@@ -1,8 +1,8 @@
 import { test } from 'vitest';
 import { rest } from 'msw';
-import {fetchAddresses} from "../../api/addresses/fetchAddresses";
-import { AddressFields } from '../../types';
-import {server} from "../test-setup";
+import {fetchAddresses} from "../../../api/addresses/fetchAddresses";
+import { AddressFields } from '../../../types';
+import {server} from "../../test-setup";
 
 test('fetchAddresses > should call the API with the correct parameters', async ({ expect }) => {
     const address: AddressFields = {

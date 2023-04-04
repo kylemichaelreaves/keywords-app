@@ -15,7 +15,7 @@ async function fetchTransactions() {
 }
 
 async function fetchTransaction(transactionId: number) {
-    return await axios.get(`${URL}/transactions/get-transaction/${transactionId}`)
+    return await axios.get(`${URL}/transactions/${transactionId}`)
         .then(res => res.data)
         .catch(err => {
             console.log(err);
