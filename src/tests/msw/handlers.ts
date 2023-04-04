@@ -11,4 +11,12 @@ export const handlers = [
         console.error(`Unhandled request: ${req.url.toString()}`);
         return res(ctx.status(500));
     }),
+
+    rest.get('*/transactions/get-memos', (req, res, ctx) => {
+        return res(ctx.status(200), ctx.json(['Test Memo 1', 'Test Memo 2']))
+    }),
+
+    rest.get('*/transactions/get-months', (req, res, ctx) => {
+        return res(ctx.status(200), ctx.json(['01/2021', '01/2022']))
+    }),
 ]

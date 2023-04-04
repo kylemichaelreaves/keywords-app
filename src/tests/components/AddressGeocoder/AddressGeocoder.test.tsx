@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {fireEvent, getByText, render, screen} from '@testing-library/react';
-import AddressGeocoder from '../../components/AddressGeocoder/AddressGeocoder';
+import AddressGeocoder from '../../../components/AddressGeocoder/AddressGeocoder';
 import {vi} from 'vitest';
-import {createQueryProviderWrapper} from '../create-query-client-wrapper';
-import {addressesMock} from "../data/addressMock";
-import {isAddressFormValid} from "../../components/AddressGeocoder/isAddressFormValid";
+import {createQueryProviderWrapper} from '../../create-query-client-wrapper';
+import {addressesMock} from "../../data/addressMock";
+import {isAddressFormValid} from "../../../components/AddressGeocoder/isAddressFormValid";
 
 const isFormValidSpy = vi.fn().mockImplementation(isAddressFormValid)
 const setup = () => {

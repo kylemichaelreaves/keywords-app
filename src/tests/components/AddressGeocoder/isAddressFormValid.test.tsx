@@ -1,5 +1,5 @@
-import {isAddressFormValid} from "../../components/AddressGeocoder/isAddressFormValid";
-import {fieldsConfig} from "../../components/AddressGeocoder/AddressGeocoder";
+import {isAddressFormValid} from "../../../components/AddressGeocoder/isAddressFormValid";
+import {fieldsConfig} from "../../../components/AddressGeocoder/AddressGeocoder";
 
 describe('isAddressFormValid', () => {
     test('returns true when all required fields are filled and isFetching is false', () => {
